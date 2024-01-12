@@ -1,8 +1,5 @@
-
 var url = 'https://leetcode.com/graphql';
 var operationName = 'singleQuestionTopicTags';
-var s = 'check-if-n-and-its-double-exist';
-
 var query = `
       query singleQuestionTopicTags($titleSlug:String!){
           question(titleSlug:$titleSlug){
@@ -13,7 +10,7 @@ var query = `
           }
       }
   `
-
+var problemSlug = process.argv[2].split("/")[4]
 
 var options = {
 	method: 'POST',
@@ -24,7 +21,7 @@ var options = {
 		operationName: operationName,
 		query: query,
 		variables: {
-			titleSlug: "add-two-numbers"
+			titleSlug: problemSlug
 		}
 	})
 }
