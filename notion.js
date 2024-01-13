@@ -158,15 +158,11 @@ function createNotionPage(tags, questionTitle){
 			}
     	})
 	}
-
-	console.log(options)
-
 	fetch(notion_url, options)
 	    .then(res => res.json())
 	    .then(data => console.log(data))
 	    .catch(err => console.log(err))
 }
-
 
 
 async function main(){
