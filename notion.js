@@ -160,8 +160,8 @@ function createNotionPage(tags, questionTitle){
 
 async function main(){
 	const tags = await getTags()
-	const questionTitle = await getQuestionTitle()\
-	const res = await createNotionPage(tags, questionTitle)
+	const questionTitle = await getQuestionTitle()
+	const res =  createNotionPage(tags, questionTitle)
 }
 
 main()
