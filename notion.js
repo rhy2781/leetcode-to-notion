@@ -131,29 +131,40 @@ function createNotionPage(tags, questionTitle){
         	properties:{
             	"Name":{
                 	type: "title",
-                		title: [{
-                        	type: "text",
-                        	text: {
-                            	content: `${questionTitle["number"]}. ${questionTitle["title"]}`
-							}
-                    	}]
-            		},
+					title: [{
+						type: "text",
+						text: {
+							content: `${questionTitle["number"]}. ${questionTitle["title"]}`
+						}
+					}],
+				},
 				"Tags":{
 					type : "multi_select",
 					multi_select: ms
-					// multi_select : {
-					// 	options: ms
-					// }
+				},
+				"Areas/Resources":{
+					type: "relation",
+					relation: [{id : process.env.leetcode_page}]
+				},
+				"URL":{
+					type: "url",
+					"url": url
+				},
+				"Number":{
+					type: "number",
+					number: parseInt(questionTitle.number)
 				}
+
 			}
     	})
 	}
+
+	console.log(options)
 
 	fetch(notion_url, options)
 	    .then(res => res.json())
 	    .then(data => console.log(data))
 	    .catch(err => console.log(err))
-
 }
 
 
